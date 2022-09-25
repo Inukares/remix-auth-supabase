@@ -83,7 +83,6 @@ export class SupabaseStrategy extends Strategy<Session, VerifyParams> {
   }
 
   protected success(session: Session, request: Request, sessionStorage: SessionStorage, options: AuthenticateOptions) {
-    /** @ts-expect-error partial user does not comply with the User object */
     return super.success(this.mapSession(session), request, sessionStorage, options);
   }
 
@@ -97,12 +96,13 @@ export class SupabaseStrategy extends Strategy<Session, VerifyParams> {
 
   private mapSession(
     session: Session
-  ): Pick<Session, 'access_token' | 'refresh_token' | 'token_type'> & { user: { id?: string | undefined } } {
+  ): Pick<Session, 'access_token' | 'refresh_token' | 'token_type' | 'provider_token'> & { user: { id?: string | undefined } } {
     return {
       user: { id: session.user?.id },
       token_type: session.token_type,
       access_token: session.access_token,
-      refresh_token: session.refresh_token
+      refresh_token: session.refresh_token,
+      provider_token: session?.provider_token ?? null
     };
   }
 
