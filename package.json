@@ -1,5 +1,5 @@
 {
-  "name": "remix-auth-supabase",
+  "name": "remix-auth-supabase-oauth-fork",
   "version": "4.0.0",
   "keywords": [
     "remix",
@@ -11,11 +11,10 @@
   ],
   "license": "MIT",
   "author": {
-    "name": "mitchelvanbever",
-    "twitter": "@ghostethedev"
+    "name": "inukares"
   },
   "repository": {
-    "url": "https://github.com/mitchelvanbever/remix-auth-supabase"
+    "url": "https://github.com/Inukares/remix-auth-supabase"
   },
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
